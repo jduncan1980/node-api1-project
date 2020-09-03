@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
 import UserTable from './components/UserTable';
-import { Dialog, Container, makeStyles, Button } from '@material-ui/core';
+import {
+	Dialog,
+	Container,
+	makeStyles,
+	Button,
+	Typography,
+} from '@material-ui/core';
 import axios from 'axios';
 
 const useStyles = makeStyles({
@@ -17,6 +23,10 @@ const useStyles = makeStyles({
 	dialog: {
 		margin: 'auto',
 		overflow: 'hidden',
+	},
+	heading: {
+		marginBottom: '50px',
+		// display: 'block',
 	},
 });
 
@@ -37,8 +47,12 @@ function App() {
 				alert(err.message);
 			});
 	}, []);
+
 	return (
 		<Container className={classes.container}>
+			<Typography variant='h1' color='initial' className={classes.heading}>
+				User List
+			</Typography>
 			<UserTable
 				users={users}
 				setUsers={setUsers}

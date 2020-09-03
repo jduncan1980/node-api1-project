@@ -12,15 +12,13 @@ import axios from 'axios';
 
 const useStyles = makeStyles({
 	container: {
-		padding: '5%',
-		width: '30%',
-		background: 'white',
-		borderRadius: '20px',
-		transform: 'translateY(100%)',
-		margin: '0 auto',
+		padding: '10%',
 	},
 	field: {
 		margin: '20px auto',
+	},
+	heading: {
+		textAlign: 'center',
 	},
 });
 
@@ -74,7 +72,7 @@ export default function Form(props) {
 			onSubmit={handleSubmit(props.edit ? submitEdit : submitAdd)}
 			className={classes.container}
 		>
-			<Typography variant='h3' color='initial'>
+			<Typography variant='h3' color='initial' className={classes.heading}>
 				{props.title}
 			</Typography>
 			<TextField

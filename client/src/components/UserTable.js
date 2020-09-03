@@ -18,10 +18,9 @@ import axios from 'axios';
 const useStyles = makeStyles({
 	table: {
 		width: '100%',
-		color: 'white',
 	},
 	tableInner: {
-		backgroundColor: 'grey',
+		backgroundColor: '#3e3549',
 	},
 	tableCell: {
 		color: 'white',
@@ -64,6 +63,12 @@ export default function UserTable({
 						<TableCell className={classes.tableHead} align='right'>
 							Bio
 						</TableCell>
+						<TableCell className={classes.tableHead} align='right'>
+							Edit{' '}
+						</TableCell>
+						<TableCell className={classes.tableHead} align='right'>
+							Delete{' '}
+						</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -81,12 +86,12 @@ export default function UserTable({
 							</TableCell>
 							<TableCell className={classes.tableCell} align='right'>
 								<IconButton onClick={() => handleEdit(user)}>
-									<EditIcon />
+									<EditIcon className={classes.tableCell} />
 								</IconButton>
 							</TableCell>
-							<TableCell className={classes.tableCell} align='right'>
+							<TableCell align='right'>
 								<IconButton onClick={() => handleDelete(user.id)}>
-									<DeleteForeverIcon />
+									<DeleteForeverIcon className={classes.tableCell} />
 								</IconButton>
 							</TableCell>
 						</TableRow>
