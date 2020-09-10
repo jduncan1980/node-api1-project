@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const shortid = require('shortid');
 const cors = require('cors');
@@ -5,7 +6,7 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 app.use(cors());
-const port = 8000;
+const port = process.env.PORT;
 
 let users = [
 	{
@@ -42,6 +43,11 @@ const updateUser = (user) => {
 const deleteUser = (id) => {
 	users = users.filter((user) => user.id !== id);
 };
+
+app.get('/api/motd', (req, res) => {
+	const motd = process.env.MOTD;
+	res.status(418).json(motd);
+});
 
 app.get('/api/users', (req, res) => {
 	if (!users) {
